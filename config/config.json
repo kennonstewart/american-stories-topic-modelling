@@ -1,0 +1,39 @@
+{
+    "libraries": [
+        "bertopic",
+        "fsspec",
+        "datasets",
+        "joypy",
+        "pandas",
+        "seaborn",
+        "matplotlib"
+    ],
+    "dataset": {
+        "name": "dell-research-harvard/AmericanStories",
+        "subset": "subset_years",
+        "year_range": {
+            "start": 1800,
+            "end": 1970,
+            "step": 10
+        },
+        "sample_size": 1000
+    },
+    "model": {
+        "embedding_model": "paraphrase-MiniLM-L3-v2",
+        "min_topic_size": 7
+    },
+    "visualization": {
+        "joyplot": {
+            "by": "year",
+            "column": "log_word_count",
+            "range_style": "own",
+            "grid": "y",
+            "linewidth": 1,
+            "legend": false,
+            "figsize": [6, 5],
+            "title": "Article Length 1800-1950",
+            "background": "w",
+            "colormap": "winter_r"
+        }
+    }
+}
