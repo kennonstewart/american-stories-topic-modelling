@@ -1,5 +1,7 @@
 import config
 import pandas as pd
+import re
+
 
 def subsample_hf_dataset(ds, n):
   seed_value = config.SUBSAMPLE_SEED_VALUE
@@ -21,3 +23,18 @@ def subsample_hf_dataset(ds, n):
 
   # Convert to pandas DataFrame if needed
   return sampled_dataset
+
+def cleaning_article_text(article_text):
+    # set case to lower
+    article_text = article_text.lower()
+
+    # remove punctuation using regex
+    article_text = re.sub(r'[^\w\s]', '', article_text)
+
+    # strip out new-line delimiters
+    article_text = article_text.replace("\n", " ")
+
+    # remove non-ascii characters
+    article_text = article_text.encode("ascii", "ignore").decode()
+
+    return article_text

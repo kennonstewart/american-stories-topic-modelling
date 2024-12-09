@@ -1,8 +1,14 @@
 import pandas as pd
 import time
+from numpy_cleaning import remove_non_english_numpy
+from pandas_cleaning import remove_non_english_pandas
+from pytorch_cleaning import remove_non_english_pytorch
+from list_comprehension_cleaning import remove_non_english_list_comprehension
+import nltk
 
 def test_time_efficiency(articles):
     results = []
+    english_words = set(nltk.corpus.words.words())
 
     # reset the index of the articles 
     articles = articles.reset_index(drop=True)
