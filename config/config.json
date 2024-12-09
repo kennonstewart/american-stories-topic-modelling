@@ -15,7 +15,10 @@
             "start": 1800,
             "end": 1970,
             "step": 10
-        },
+        }    
+    },
+    "subsample_config": {
+        "seed_value": 42,
         "sample_size": 1000
     },
     "model": {
