@@ -4,3 +4,4 @@ nltk==3.9.1
 numpy==2.2.0
 pandas==2.2.3
 torch==2.5.1
+transformers==4.12.5
