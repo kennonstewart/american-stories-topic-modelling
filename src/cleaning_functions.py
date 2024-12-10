@@ -1,5 +1,21 @@
-import torch
+import pandas as pd
 from nltk.tokenize import word_tokenize
+import numpy as np
+import torch
+
+def remove_non_english_pandas(text, english_words):
+    tokens = pd.Series(word_tokenize(text))
+    mask = tokens.str.lower().isin(english_words)
+    return ' '.join(tokens[mask])
+
+def remove_non_english_list_comprehension(text, english_words):
+    tokens = word_tokenize(text)
+    return ' '.join([word for word in tokens if word.lower() in english_words])
+
+def remove_non_english_numpy(text, english_words):
+    tokens = np.array(word_tokenize(text))
+    mask = np.vectorize(lambda word: word.lower() in english_words)(tokens)
+    return ' '.join(tokens[mask])
 
 # Load English words and create a vocabulary
 def generate_pytorch_mappings(english_words):

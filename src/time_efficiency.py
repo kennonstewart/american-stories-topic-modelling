@@ -1,9 +1,6 @@
 import pandas as pd
 import time
-from numpy_cleaning import remove_non_english_numpy
-from pandas_cleaning import remove_non_english_pandas
-from pytorch_cleaning import remove_non_english_pytorch
-from list_comprehension_cleaning import remove_non_english_list_comprehension
+from cleaning_functions import *
 import nltk
 
 def test_time_efficiency(articles):
