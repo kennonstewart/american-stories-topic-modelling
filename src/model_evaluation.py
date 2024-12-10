@@ -3,21 +3,6 @@ import gensim
 from gensim.models.coherencemodel import CoherenceModel
 
 def evaluate_model(model, data):
-    """
-    Evaluate the model using coherence score
-
-    Parameters
-    ----------
-    model : gensim.models.ldamodel.LdaModel
-        The trained LDA model
-    data : pd.DataFrame
-        The data used to train the model
-
-    Returns
-    -------
-    coherence_score : float
-        The coherence score of the model
-    """
     # Get the topics from the model
     topics = model.get_topics()
 
